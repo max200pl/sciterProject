@@ -1,0 +1,56 @@
+const obj  = {firstName: "Max", lastName: "Poskannyi"};
+const arr  = [obj, obj];
+const listCountry = ["Brunei", "Brazil", "Cyprus", "Greece", "India", "Lesotho"];
+const defaultText = "Change your location:";
+
+let titleSelect = $(#costom-select)
+let confirm = $(#selectDefaultCountry) 
+
+event click $(#test){
+     stdout.$n(2) //вывод в консоль данных 
+     stdout.println('2') //вывод в консоль данных 
+     stdout.println(this.value); //
+     //.match('.parent1 .inner1 div #test') 
+     //проверка на нахождение правильного селектора в классе
+     //можно использовать $if() долоровые функции для такой  
+     debug info (info sample, object and array: {obj} {arr});
+     debug alert (alert sample, integer and DOM element:{this});
+     view.msgbox("hello there") // popap window informationdsa asd 
+}
+  
+function generateListCountry(listCountry) {
+     const options = listCountry.map((nameCountry, index) => {
+          return 
+               <option value={index+1}>
+                    {nameCountry}
+               </option>
+     });
+
+     options.unshift(
+          <option value="0" >
+               {defaultText}
+          </option>
+     )
+ $(#costom-select).content(options);
+}
+
+generateListCountry(listCountry);
+     
+
+$(#costom-select).on("change", function() {
+     let {firstName, lastName} = obj;
+     let selectOption = this.value;
+     confirm.state.disabled = selectOption === 0;
+
+     /*
+     if(){ 
+          true;
+          view.msgbox(String.$(Please select card: {firstName}, {lastName}))
+     }else{
+          confirm.state.disabled = false;
+     }
+     */
+
+     debug info (asdad{selectOption}) 
+     debug info ({titleSelect.options[0].value}) 
+})
