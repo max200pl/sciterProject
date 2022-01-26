@@ -1,3 +1,6 @@
+if( view.connectToInspector ) // the view is in debug mode
+  view.connectToInspector(rootElement, inspectorIpAddress);
+
 const obj  = {firstName: "Max", lastName: "Poskannyi"};
 const arr  = [obj, obj];
 const listCountry = ["Brunei", "Brazil", "Cyprus", "Greece", "India", "Lesotho"];
@@ -5,17 +8,18 @@ const defaultText = "Change your location:";
 
 let titleSelect = $(#costom-select)
 let confirm = $(#selectDefaultCountry) 
+let seveChoseCountry = []
 
 event click $(#test){
-     stdout.$n(2) //вывод в консоль данных 
-     stdout.println('2') //вывод в консоль данных 
-     stdout.println(this.value); //
+     //stdout.$n(2) //вывод в консоль данных 
+     //stdout.println('2') //вывод в консоль данных 
+     //stdout.println(this.value); //
      //.match('.parent1 .inner1 div #test') 
      //проверка на нахождение правильного селектора в классе
      //можно использовать $if() долоровые функции для такой  
-     debug info (info sample, object and array: {obj} {arr});
-     debug alert (alert sample, integer and DOM element:{this});
-     view.msgbox("hello there") // popap window informationdsa asd 
+     //debug info (info sample, object and array: {obj} {arr});
+     //debug alert (alert sample, integer and DOM element:{this});
+     //view.msgbox("hello there") // popap window informationdsa asd 
 }
   
 function generateListCountry(listCountry) {
@@ -36,21 +40,31 @@ function generateListCountry(listCountry) {
 
 generateListCountry(listCountry);
      
+let selectOption = 0; // можно ли избавиться от таких пепеменных 
+let selectOptionText = ""; // можно ли избавиться от таких пепеменных 
+let thisOption = ""; // можно ли избавиться от таких пепеменных 
 
 $(#costom-select).on("change", function() {
      let {firstName, lastName} = obj;
-     let selectOption = this.value;
+
+     selectOption = this.value;
+     thisOption = this; // как поставить заглушку? 
+     selectOptionText = this.options[this.value].text;
+
      confirm.state.disabled = selectOption === 0;
+})
 
-     /*
-     if(){ 
-          true;
-          view.msgbox(String.$(Please select card: {firstName}, {lastName}))
-     }else{
-          confirm.state.disabled = false;
-     }
-     */
+function findeChoseOption(){
+     // finde chose option
+     let choseCounty =  thisOption.options[thisOption.value].text;
 
-     debug info (asdad{selectOption}) 
-     debug info ({titleSelect.options[0].value}) 
+     // add chose country in array
+     seveChoseCountry.unshift(choseCounty)
+
+     debug info (new array seveChoseCountry: --> {seveChoseCountry})
+}
+
+
+$(#test).on("click", function(thisOption) {
+    findeChoseOption(thisOption)
 })
