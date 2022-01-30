@@ -1,1 +1,18 @@
-.selectDefaultCountry {}
+
+#formFormation {
+     flow:row(label,input);
+     font:system;
+     border-spacing:4px;
+     padding: 10px;
+     border: 1px solid #000;
+     margin: 4px;
+}
+
+#formFormation > label {
+     vertical-align: baseline;
+     width: 80px;
+}
+
+.formation__button{
+     flow: horizontal;
+}

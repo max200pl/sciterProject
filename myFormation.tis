@@ -1,0 +1,36 @@
+
+/**
+ 1) Get datat from #formFormation
+ 2) Set new data in obj.dataBase 
+ 3) Created new Ul>li list 
+
+ Notes
+ self === document
+*/
+
+
+$(#get) << event click(){
+
+     let getPropertyUser = {
+          name: {
+               first: "",
+               last: "",
+          },
+          age: 0,
+     }
+
+     getPropertyUser.name.first = $(#first).value;
+     getPropertyUser.name.last = $(#last).value;
+     getPropertyUser.name.age = $(#age).value;
+     
+     debug info ({getPropertyUser})
+}
+
+$(#set) << event click(){ 
+     debug alert (alert sample{self})
+}
+
+// namespace --> organize code elements and to create globally unique type
+namespace formation {  //пространство имен (namespace)
+     // code...
+}

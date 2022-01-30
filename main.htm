@@ -3,7 +3,9 @@
   <head>
     <title>sciter Hello</title>
     <script src="./app.tis" type="text/tiscript"></script>
+    <script src="./myFormation.tis" type="text/tiscript"></script>
     <link rel="stylesheet" href="./style.css">
+
   </head>
   <body>
     <h1>Hello World</h1>
@@ -14,6 +16,30 @@
     </select>
     
     <input type="checkbox" name="confirmCountry" id="selectDefaultCountry" >
-    
+
+    <h1>My formation</h1>
+
+    <section( ) #formFormation>
+      <label for=name.first>First Name</label>
+      <input(name.first) #first>
+
+      <label for=name.last>Second Name</label>
+      <input(name.last) #last>
+
+      <label for=age>Your age</label>
+      <input|integer(age) #age>
+
+      <div class="formation__button">
+        <button #get>
+          Get information in form
+        </button>
+      
+        <button #set>
+          Set information in form
+        </button>
+      </div>
+
+      <div #out></div>
+    </section>
   </body>
 </html>
